@@ -1,0 +1,69 @@
+\documentclass[11pt]{beamer}
+\let\Tiny=\tiny
+\let\epsilon=\varepsilon
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{tikz}
+\usepackage{framed}
+
+\definecolor{cherryred}{RGB}{214,31,74}
+\definecolor{sandiasilver}{RGB}{204,204,204}
+\definecolor{lightblue}{RGB}{240,245,255}
+
+\usecolortheme[named=cherryred]{structure}
+\usefonttheme[onlymath]{serif}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{blocks}[shadow=true]
+\setbeamersize{sidebar width left=0.2cm}
+\setbeamercolor{sidebar}{bg=sandiasilver}
+\setbeamercolor{frametitle}{fg=white, bg=cherryred}
+\setbeamertemplate{theorems}[numbered]
+
+
+\author{David E. Weirich}
+\title{Neural Networks: \\ The Hard Way}
+\date{\today}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\B}{\mathfrak{B}}
+\newcommand{\Dh}{\tilde{\mathcal{D}}}
+
+\newcommand{\supp}{\operatorname{Support}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\proj}{\operatorname{Proj}}
+\newcommand{\spn}{\operatorname{span}}
+\newcommand{\quadr}{\operatorname{Quad}}
+\newcommand{\qak}{Q_\alpha^k}
+\newcommand{\one}{\textbf{1}} % Get the better looking one working!
+
+\newcommand{\mean}[2]{\langle #2 \rangle_{#1}}
+
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\newcommand{\zak}{z_\alpha^k}
+
+\newcommand{\bfred}[1]{{\color{cherryred} \textbf{#1}}}
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Disclaimer}
+\begin{center}
+\includegraphics[scale=0.18]{ThereWillBeMath}
+\end{center}
+\end{frame}
+
+\section{Crash Course}
+
+\section{Gradients}
+
+\end{document}
