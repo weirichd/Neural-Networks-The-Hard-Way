@@ -45,6 +45,8 @@ def grad_loss(x, y, y_hat):
     return d_slope, d_intercept
 
 
+# Train the model.
+
 learning_rate = 0.01
 
 x, y, true_slope, true_intercept = generate_data(50)
