@@ -18,8 +18,8 @@ def forward_pass(model, x):
     return model['slope'] * x + model['y-intercept']
 
 
-def loss(prediction, ground_truth):
-    return 1 / (2 * len(prediction)) * sum((prediction - ground_truth)**2)
+def loss(y, y_hat):
+    return 1 / (2 * len(y)) * sum((y - y_hat)**2)
 
 
 def generate_data(num_examples):
