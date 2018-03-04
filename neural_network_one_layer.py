@@ -8,9 +8,9 @@ hidden_layer_size = 10
 
 network = {
     'weights hidden': np.random.randn(hidden_layer_size, 1),
-    'weights out': np.random.randn(1, hidden_layer_size),
     'bias hidden': np.zeros(hidden_layer_size, 1),
-    'bias out': np.zeros(output_layer, 1)
+    'weights out': np.random.randn(1, hidden_layer_size),
+    'bias out': 0
 }
 
 
@@ -19,10 +19,17 @@ def activation(z):
 
 
 def forward_pass(x, nn):
+    """
+    Calculate the forward pass of the Neural Network.
+
+    Return the output, as well as the hidden layer's values.
+    """
     z_1 = nn['weights hidden'] * x + nn['bias hidden']
     a_1 = activation(z_1)
 
-    return nn['weights out'] * a_1 + nn['bias out'], a_1
+    out = nn['weights out'] * a_1 + nn['bias out'], a_1
+
+    return out, a_1
 
 
 def loss(y, y_hat):
@@ -37,7 +44,7 @@ def grad_loss(x, y, y_hat, hidden, model):
     """
     Calculate the gradient of loss for the weights and biases.
 
-    x, y, y_hat are row vectors.
+    x, y, y_hat are 1 x N row vectors.
     hidden is a N x H matrix where N is the number of observations and H is the hidden layer size.
     model is the model.
     """
@@ -46,14 +53,18 @@ def grad_loss(x, y, y_hat, hidden, model):
     N = len(y)
 
     dJ_dy_hat = (1 / N) * (y - y_hat)
+    dJ_dy_hat = dJ_dy_hat.T
 
-    grad['bias out'] = sum(dJ_dy_hat)
-    grad['weights out'] = np.matmul(dJ_dy_hat, hidden.T)
-
+    grad['bias out'] = dJ_dy_hat.sum()
+    grad['weights out'] = np.matmul(hidden, dJ_dy_hat)
+ 
     hidden_prime = activation_derivative(hidden)
 
-    grad['bias hidden'] = 
-    grad['weights hidden'] = 
+    dy_hat_db_hidden = model['weights out'] * hidden_prime
+    grad['bias hidden'] =  np.matmul(dy_hat_db_hidden, dJ_dy_hat)
+
+    dy_hat_dw_hidden = dy_hat_db_hidden * x
+    grad['weights hidden'] = np.matmul(dy_hat_dw_hidden, dJ_dy_hat) 
 
     return grad
 
