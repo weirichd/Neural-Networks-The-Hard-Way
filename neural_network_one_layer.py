@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Hyper parameters
-hidden_layer_size = 1000
+hidden_layer_size = 100
 
 
 neural_network = {
@@ -44,7 +44,7 @@ def generate_data(num_examples):
     x = np.random.random_sample((1, num_examples)) * np.pi * 4 - np.pi * 2
     x = x + 0.1 * np.random.randn(*x.shape)
 
-    y = np.cos(x) + 0.25 * np.random.randn(num_examples)
+    y = 0.1 * x + np.cos(x) + 0.25 * np.random.randn(num_examples)
 
     return x, y
 
@@ -89,7 +89,7 @@ x, y = generate_data(200)
 
 plt.ion()
 
-num_epochs = 1000
+num_epochs = 10000
 
 losses = []
 
@@ -104,9 +104,6 @@ for epoch in range(num_epochs):
     losses.append(J)
 
     gradient = grad_loss(x, y, y_hat, hidden_values, neural_network)
-    assert neural_network['weights out'].shape == gradient['weights out'].shape
-    assert neural_network['weights hidden'].shape == gradient['weights hidden'].shape
-    assert neural_network['bias hidden'].shape == gradient['bias hidden'].shape
 
     # Update model
     neural_network['weights out'] = neural_network['weights out'] - learning_rate * gradient['weights out']
@@ -115,7 +112,7 @@ for epoch in range(num_epochs):
     neural_network['bias hidden'] = neural_network['bias hidden'] - learning_rate * gradient['bias hidden']
 
     # Plot this stage
-    if epoch % 25 == 0:
+    if epoch % 100 == 0:
         print('Epoch: {} Loss: {}'.format(epoch, J))
         plt.clf()
         plt.subplot(2, 1, 1)
