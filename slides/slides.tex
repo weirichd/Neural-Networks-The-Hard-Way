@@ -59,7 +59,7 @@
 \begin{frame}{Talk Objectives}
 
 \begin{itemize}
-\item Understand the mathematical basis for artifical neural networks.
+\item Understand the mathematical basis for artificial neural networks.
 
 \item Use that knowledge to design and build a neural network without relying on preexisting ML frameworks.
 \end{itemize}
@@ -79,24 +79,28 @@ Or more consicely...
 \section{What are these Neural Networks Things?}
 
 \begin{frame}{What are Neural Networks?}
-Q: What is a neural network?
+\textbf{Q:} What is a neural network?
 
 \bigskip 
 
-A: \emph{A neural network is this super confusing thing that is kind of like an artifical brain.}
+\textbf{A:} \emph{A neural network is this super confusing thing that is kind of like an artificial brain.}
 
 \bigskip 
 
-Q: Why do we care?
+\textbf{Q:} Why do we care?
 
 \bigskip 
 
-A: \emph{It can learn anything, do anything, and no one understands them.}
+\textbf{A:} \emph{It can learn anything, do anything, and no one really understands them.}
 \end{frame}
 
-\begin{frame}{Why the "hard way"??? I prefer easy!}
+\begin{frame}{Why the ``hard way''??? I prefer easy!}
 
-What do I mean by "the hard way"?
+\emph{What do I mean by "the hard way"?}
+
+\bigskip
+
+\bigskip
 
 Doing things the hard way means teaching you how to teach yourself.
 
@@ -119,8 +123,8 @@ Here $F$ is the true function, and $\widehat{F}$ is our approximation.
 
 \begin{center}
 \begin{figure}
-\includegraphics[scale=0.1]{Blausen_0657_MultipolarNeuron}
-\caption{A neuron. These things are involved somehow? (Source: Wikipedia)}
+\includegraphics[scale=0.2]{Blausen_0657_MultipolarNeuron}
+\caption{A neuron. These things are involved somehow?}
 \end{figure}
 \end{center}
 	
@@ -160,7 +164,7 @@ Here $F$ is the true function, and $\widehat{F}$ is our approximation.
 \end{center}
 \end{frame}
 
-\begin{frame}{The $\Sigma$exy Way}
+\begin{frame}{The $\Sigma$exy Part of the Talk}
 Let's take a look at the math under the hood:
 \begin{align*}
 x &= \left[\begin{array}{c}
@@ -177,6 +181,8 @@ where $W_i$ is a weight matrix, $b_i $ is a bias vector, and $\sigma$ is an acti
 
 \begin{frame}{Breaking that down}
 
+Let's look at that again, step by step:
+
 \begin{align*}
 z_0 &:= W_0x + b_0 \\
 a_0 &:= \sigma(z_0) \\
@@ -190,7 +196,7 @@ a_1 &:= \sigma(z_1) \\
 
 \begin{frame}{Universal Approximation Theorem}
 \begin{theorem}[Cybenko (1989), Hornik (1991)]
-Let $\sigma$ be a nonconstant, bounded, and monotoncally increasing function.
+Let $\sigma$ be a nonconstant, bounded, and monotonically increasing function.
 Given any $\epsilon > 0$ and any continuous function $F$ defined on a compact subdomain $\Omega$ of $\R^n$ there exists a constant $N$, real constants $v_i$ and $b_i$, and real vectors $w_i$ such that we may define
 $$\widehat{F}(x) := \sum_{i = 1}^N v_i \sigma(w_i^T \cdot x + b_i)$$
 with
@@ -213,21 +219,35 @@ Now we just have to minimize the loss!
 \end{frame}
 
 \begin{frame}{The Gradient}
-Recall from multivariable calculus that the \emph{gradient} is a vector which points in the direction of steapest assent on a surface.
+Recall from multivariable calculus that the \emph{gradient} is a vector which points in the direction of steepest assent on a surface.
 \begin{center}
 \begin{figure}
 \includegraphics[scale=0.25]{720px-Gradient_Visual}
-\caption{A function of two variables, with it's gradient.}
+\caption{A function of two variables, with its gradient.}
 \end{figure}
 \end{center}
+\end{frame}
+
+\begin{frame}{Calculating the Gradient}
+
+Normally we would use an algorithm called ``Back Propogation\footnote{Or as I like to call it, the chain rule with clever bookkeeping.}'' to calculate the gradients.
+
+\bigskip
+
+But I just did it this way:
+
+\begin{center}
+\includegraphics[scale=0.04]{20180305_112255}
+\end{center}
+
 \end{frame}
 
 \begin{frame}{The Game Plan}
 \begin{itemize}
 \item We start by setting the weights and biases of the NN randomly.
 \item Calculate the gradient of the loss function $J$ with respect to these parameters.
-\item Take a small step in the direction of the negative gradient.
-\item Repeat untill the error is acceptable.
+\item Update the parameters a tiny bit by taking a step in the direction of the negative gradient.
+\item Repeat until the error is acceptable.
 \end{itemize}
 \end{frame}
 
