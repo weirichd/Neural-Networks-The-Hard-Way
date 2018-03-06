@@ -82,6 +82,7 @@ for epoch in range(num_epochs):
     y_line = forward_pass(linear_model, x_line)
 
     plt.clf()
+    plt.figure(figsize=(5, 10))
     plt.subplot(2, 1, 1)
     plt.axis([-1, 11, min(y) - 1, max(y) - 1])
     plt.plot(x_line, true_ys, 'b--', alpha=0.35)
