@@ -64,9 +64,17 @@
 \item Use that knowledge to design and build a neural network without relying on preexisting ML frameworks.
 \end{itemize}
 
-Or more consicely...
+\bigskip
 
-\textbf{Learn Neural Networks THE HARD WAY}
+\pause
+
+Or in other words...
+
+\bigskip
+
+\pause
+
+\hspace{10mm}\textbf{Learn Neural Networks THE HARD WAY}
 
 \end{frame}
 
@@ -78,29 +86,13 @@ Or more consicely...
 
 \section{What are these Neural Networks Things?}
 
-\begin{frame}{What are Neural Networks?}
-\textbf{Q:} What is a neural network?
-
-\bigskip 
-
-\textbf{A:} \emph{A neural network is this super confusing thing that is kind of like an artificial brain.}
-
-\bigskip 
-
-\textbf{Q:} Why do we care?
-
-\bigskip 
-
-\textbf{A:} \emph{It can learn anything, do anything, and no one really understands them.}
-\end{frame}
-
 \begin{frame}{Why the ``hard way''??? I prefer easy!}
 
 \emph{What do I mean by "the hard way"?}
 
 \bigskip
 
-\bigskip
+\bigskip	
 
 Doing things the hard way means teaching you how to teach yourself.
 
@@ -117,6 +109,22 @@ $$||F - \widehat{F}|| < \epsilon$$
 \bigskip
 
 Here $F$ is the true function, and $\widehat{F}$ is our approximation.
+\end{frame}
+
+\begin{frame}{What are Neural Networks?}
+\textbf{Q:} What is a neural network?
+
+\bigskip 
+
+\textbf{A:} \emph{A neural network is this super confusing thing that is kind of like an artificial brain.}
+
+\bigskip 
+
+\textbf{Q:} Why do we care?
+
+\bigskip 
+
+\textbf{A:} \emph{It can learn anything, do anything, and no one really understands them.}
 \end{frame}
 
 \begin{frame}{Neurons}
@@ -149,18 +157,21 @@ Here $F$ is the true function, and $\widehat{F}$ is our approximation.
 
 \end{frame}
 
-\begin{frame}{Digits}
+\begin{frame}{A Motivating Example: Classifying Digits}
+Suppose you were the kind of person who wanted to identify some pictures of numerical digits.
+
 \begin{center}
 
-\includegraphics[scale=0.5]{digits}
+\includegraphics[scale=0.4]{digits}
 
 \pause
 
-\includegraphics[scale=0.5]{digits2}
+\includegraphics[scale=0.4]{digits2}
 
 \pause
 
-\includegraphics[scale=0.5]{digits3}
+\includegraphics[scale=0.4]{digits3}
+
 \end{center}
 \end{frame}
 
@@ -262,6 +273,16 @@ WE'LL DO IT LIVE!
 \end{frame}
 
 \section{End}
+
+\begin{frame}{Concluding Remarks}
+
+\begin{itemize}
+\item Neural networks are powerful because they combine the ability to approximate any function with a systematic method for improving that approximation.
+\item The loss function measures how well a given NN matches the desired function.
+\item Gradient descent is the process by which we slowly nudge the parameters of the network in the proper direction in an attempt to minimize the loss function.
+\end{itemize}
+
+\end{frame}
 
 \begin{frame}
 \begin{center}
