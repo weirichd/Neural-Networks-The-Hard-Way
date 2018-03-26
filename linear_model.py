@@ -32,7 +32,7 @@ def generate_data(num_examples):
 
     y = m * x + b + np.random.randn(num_examples)
 
-    return x, y, m, b
+    return x, y
 
 
 def grad_loss(x, y, y_hat):
@@ -47,9 +47,7 @@ def grad_loss(x, y, y_hat):
 
 learning_rate = 0.01
 
-x, y, true_slope, true_intercept = generate_data(50)
-
-true_ys = [-1 * true_slope + true_intercept, 11 * true_slope + true_intercept]
+x, y = generate_data(50)
 
 plt.ion()
 
@@ -82,7 +80,6 @@ for epoch in range(num_epochs):
     plt.clf()
     plt.subplot(2, 1, 1)
     plt.axis([-1, 11, min(y) - 1, max(y) - 1])
-    plt.plot(x_line, true_ys, 'b--', alpha=0.35)
     plt.plot(x, y, 'b.', alpha=0.25)
     plt.plot(x_line, y_line, 'k--')
 

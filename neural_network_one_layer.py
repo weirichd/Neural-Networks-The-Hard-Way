@@ -22,6 +22,8 @@ def forward_pass(x, model):
     Calculate the forward pass of the Neural Network.
 
     Return the output, as well as the hidden layer's values.
+    (We return the hidden layer's values here because it will be useful
+    when calculating the gradient).
     """
     z_1 = np.matmul(model['weights hidden'], x) + model['bias hidden']
     a_1 = activation(z_1)
@@ -114,6 +116,7 @@ for epoch in range(num_epochs):
     # Plot this stage
     if epoch % 100 == 0 and epoch > 0:
         print('Epoch: {} Loss: {}'.format(epoch, J))
+
         plt.clf()
         plt.subplot(2, 1, 1)
         plt.axis([x.min() - 1, x.max() + 1, y.min() - 1, y.max() + 1])
