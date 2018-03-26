@@ -6,8 +6,6 @@ import numpy as np
 A simple linear model trained via backpropogation.
 """
 
-import random 
-
 linear_model = {
     'slope': 0,
     'y-intercept': 0
@@ -82,7 +80,6 @@ for epoch in range(num_epochs):
     y_line = forward_pass(linear_model, x_line)
 
     plt.clf()
-    plt.figure(figsize=(5, 10))
     plt.subplot(2, 1, 1)
     plt.axis([-1, 11, min(y) - 1, max(y) - 1])
     plt.plot(x_line, true_ys, 'b--', alpha=0.35)
@@ -94,6 +91,6 @@ for epoch in range(num_epochs):
     plt.plot(range(len(losses)), losses,'g')
     plt.plot(range(len(losses)), losses,'g.')
 
-    plt.pause(0.05)
+    plt.pause(0.1)
     
 input('Press Enter to quit.')  # Pause before closing

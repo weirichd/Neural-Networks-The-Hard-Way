@@ -112,7 +112,7 @@ for epoch in range(num_epochs):
     neural_network['bias hidden'] = neural_network['bias hidden'] - learning_rate * gradient['bias hidden']
 
     # Plot this stage
-    if epoch % 100 == 0:
+    if epoch % 100 == 0 and epoch > 0:
         print('Epoch: {} Loss: {}'.format(epoch, J))
         plt.clf()
         plt.subplot(2, 1, 1)
@@ -120,10 +120,12 @@ for epoch in range(num_epochs):
         plt.plot(x, y, 'b.', alpha=0.25)
         plt.plot(x, y_hat, 'k.')
 
+        losses_to_plot = losses[50::50]
+
         plt.subplot(2, 1, 2)
-        plt.axis([0, num_epochs, 0, losses[0]])
-        plt.plot(range(len(losses)), losses,'g')
-        plt.plot(range(len(losses)), losses,'g.')
+        plt.axis([0, num_epochs / 50, 0, losses_to_plot[0]])
+        plt.plot(range(len(losses_to_plot)), losses_to_plot,'g')
+        plt.plot(range(len(losses_to_plot)), losses_to_plot,'g.')
 
         plt.pause(0.02)
 
